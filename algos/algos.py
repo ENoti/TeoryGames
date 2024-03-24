@@ -80,7 +80,7 @@ def dominant(matr: matrix.Matrix, param):
         index.sort(reverse=True)
         for i in index:
             for j in range (m):
-                newMatr[i][j] = 0
+                np.delete(newMatr, i, j)
     elif (param == 1):
         for k in range(n - 1):
             for i in range(k + 1, n):
@@ -101,7 +101,7 @@ def dominant(matr: matrix.Matrix, param):
         index.sort(reverse=True)
         for i in index:
             for j in range (n):
-                newMatr[j][i] = 0
+                np.delete(newMatr, j, i)
 
     if len(index) == 0:
         print("Строго доминируемых стратегий не обнаружено")
@@ -131,8 +131,7 @@ def weaklyDominant(matr: matrix.Matrix, param):
         index.sort(reverse=True)
         if index:
             for i in index:
-                for j in range (m):
-                    newMatr[i][j] = 0
+                newMatr = np.delete(newMatr, i, 0)
     elif (param == 1):
         for k in range(n - 1):
             for i in range(k + 1, n):
@@ -150,12 +149,10 @@ def weaklyDominant(matr: matrix.Matrix, param):
         index.sort(reverse=True)
         if index:
             for i in index:
-                for j in range (n):
-                    newMatr[j][i] = 0
+                newMatr = np.delete(newMatr, i, 0)
 
     if len(newMatr) == len(matr.matrix):
         print("Слабо доминируемых стратегий не обнаружено")
-        newMatr = None
 
     return newMatr 
 
