@@ -1,4 +1,4 @@
-from domain.matrix import Matrix
+from TeoryGames.algos.matrix import Matrix
 
 my_matrix = Matrix.input_from_file("matrix.txt")
 
