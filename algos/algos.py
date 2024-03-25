@@ -1,7 +1,7 @@
 import matrix
 import numpy as np
 
-def minimax(matr: matrix.Matrix, param):
+def maximin(matr: matrix.Matrix, param):
     arr = np.empty(matr.n, dtype=object) 
     minElem = matr.matrix[0][0][param]
     if(param == 0):
@@ -9,8 +9,8 @@ def minimax(matr: matrix.Matrix, param):
             for j in range (matr.m):
                 if matr.matrix[i][j][param] < minElem:
                     minElem = matr.matrix[i][j][param]
-            minElem = matr.matrix[i][0][param]
             arr[i] = minElem
+            minElem = matr.matrix[i][0][param]
         maxElem = arr[0]
         for i in range(arr.size):
             if arr[i] > maxElem:
@@ -20,15 +20,15 @@ def minimax(matr: matrix.Matrix, param):
             for j in range (matr.m):
                 if matr.matrix[j][i][param] < minElem:
                     minElem = matr.matrix[j][i][param]
-            minElem = matr.matrix[0][j][param]
             arr[i] = minElem
+            minElem = matr.matrix[0][j][param]
         maxElem = arr[0]
         for i in range(arr.size):
             if arr[i] > maxElem:
                 maxElem = arr[i]
     return maxElem
 
-def maximin(matr: matrix.Matrix, param):
+def minimax(matr: matrix.Matrix, param):
     arr = np.empty(matr.n, dtype=object) 
     minElem = matr.matrix[0][0][param]
     if(param == 0):
@@ -36,8 +36,8 @@ def maximin(matr: matrix.Matrix, param):
             for j in range (matr.m):
                 if matr.matrix[i][j][param] > minElem:
                     minElem = matr.matrix[i][j][param]
-            minElem = matr.matrix[i][0][param]
             arr[i] = minElem
+            minElem = matr.matrix[i][0][param]
         maxElem = arr[0]
         for i in range(arr.size):
             if arr[i] < maxElem:
@@ -47,8 +47,8 @@ def maximin(matr: matrix.Matrix, param):
             for j in range (matr.m):
                 if matr.matrix[j][i][param] > minElem:
                     minElem = matr.matrix[j][i][param]
-            minElem = matr.matrix[0][j][param]
             arr[i] = minElem
+            minElem = matr.matrix[0][j][param]
         maxElem = arr[0]
         for i in range(arr.size):
             if arr[i] < maxElem:
@@ -187,6 +187,6 @@ def nesh(matr: matrix.Matrix):
     return i, j
 
 matr = matrix.Matrix.input_from_file('TeoryGames/matrix.txt')
-print(nesh(matr))
+print(maximin(matr, 1))
 
 
