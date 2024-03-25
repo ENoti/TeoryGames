@@ -16,21 +16,32 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLayout, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QPushButton, QRadioButton, QSizePolicy,
-    QSpacerItem, QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLabel, QLayout, QLineEdit, QMainWindow,
+    QMenu, QMenuBar, QPushButton, QRadioButton,
+    QSizePolicy, QSpacerItem, QStatusBar, QVBoxLayout,
+    QWidget)
 
 class Ui_mainWindow(object):
     def setupUi(self, mainWindow):
         if not mainWindow.objectName():
             mainWindow.setObjectName(u"mainWindow")
-        mainWindow.resize(800, 600)
+        mainWindow.resize(800, 628)
         font = QFont()
         font.setFamilies([u"Arial"])
         mainWindow.setFont(font)
         self.actionOpen = QAction(mainWindow)
         self.actionOpen.setObjectName(u"actionOpen")
+        self.actionMinMax = QAction(mainWindow)
+        self.actionMinMax.setObjectName(u"actionMinMax")
+        self.actionMaxMin = QAction(mainWindow)
+        self.actionMaxMin.setObjectName(u"actionMaxMin")
+        self.actionDominant = QAction(mainWindow)
+        self.actionDominant.setObjectName(u"actionDominant")
+        self.actionWeaklyDominant = QAction(mainWindow)
+        self.actionWeaklyDominant.setObjectName(u"actionWeaklyDominant")
+        self.actionNesh = QAction(mainWindow)
+        self.actionNesh.setObjectName(u"actionNesh")
         self.centralwidget = QWidget(mainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -137,6 +148,24 @@ class Ui_mainWindow(object):
 
         self.MatrInitLayout.addWidget(self.ConfirmMatrixButton)
 
+        self.FunctionHLayout = QHBoxLayout()
+        self.FunctionHLayout.setSpacing(10)
+        self.FunctionHLayout.setObjectName(u"FunctionHLayout")
+        self.FunctionHLayout.setContentsMargins(10, 10, 10, 10)
+        self.PlayerChoiceBox = QComboBox(self.centralwidget)
+        self.PlayerChoiceBox.setObjectName(u"PlayerChoiceBox")
+
+        self.FunctionHLayout.addWidget(self.PlayerChoiceBox)
+
+        self.BufferButton = QPushButton(self.centralwidget)
+        self.BufferButton.setObjectName(u"BufferButton")
+        self.BufferButton.setCheckable(True)
+
+        self.FunctionHLayout.addWidget(self.BufferButton)
+
+
+        self.MatrInitLayout.addLayout(self.FunctionHLayout)
+
 
         self.verticalLayout.addLayout(self.MatrInitLayout)
 
@@ -160,10 +189,18 @@ class Ui_mainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 800, 26))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
+        self.menuAlgorithms = QMenu(self.menubar)
+        self.menuAlgorithms.setObjectName(u"menuAlgorithms")
         mainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuAlgorithms.menuAction())
         self.menuFile.addAction(self.actionOpen)
+        self.menuAlgorithms.addAction(self.actionMinMax)
+        self.menuAlgorithms.addAction(self.actionMaxMin)
+        self.menuAlgorithms.addAction(self.actionDominant)
+        self.menuAlgorithms.addAction(self.actionWeaklyDominant)
+        self.menuAlgorithms.addAction(self.actionNesh)
 
         self.retranslateUi(mainWindow)
 
@@ -173,11 +210,18 @@ class Ui_mainWindow(object):
     def retranslateUi(self, mainWindow):
         mainWindow.setWindowTitle(QCoreApplication.translate("mainWindow", u"\u041c\u0430\u0442\u0440\u0438\u0447\u043d\u044b\u0435 \u0438\u0433\u0440\u044b", None))
         self.actionOpen.setText(QCoreApplication.translate("mainWindow", u"Open", None))
+        self.actionMinMax.setText(QCoreApplication.translate("mainWindow", u"\u041c\u0438\u043d\u041c\u0430\u043a\u0441", None))
+        self.actionMaxMin.setText(QCoreApplication.translate("mainWindow", u"\u041c\u0430\u043a\u0441\u041c\u0438\u043d", None))
+        self.actionDominant.setText(QCoreApplication.translate("mainWindow", u"\u0421\u0442\u0440\u043e\u0433\u043e \u0434\u043e\u043c\u0438\u043d\u0438\u0440\u0443\u0435\u043c\u0430\u044f", None))
+        self.actionWeaklyDominant.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043b\u0430\u0431\u043e \u0434\u043e\u043c\u0438\u043d\u0438\u0440\u0443\u0435\u043c\u0430\u044f", None))
+        self.actionNesh.setText(QCoreApplication.translate("mainWindow", u"\u0420\u0430\u0432\u043d\u043e\u0432\u0435\u0441\u0438\u0435 \u043f\u043e \u041d\u044d\u0448\u0443", None))
         self.ConfirmParamsButton.setText(QCoreApplication.translate("mainWindow", u"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b", None))
         self.PlayerLabel.setText(QCoreApplication.translate("mainWindow", u"\u0418\u043c\u0435\u043d\u0430 \u0418\u0433\u0440\u043e\u043a\u043e\u0432:     ", None))
         self.OptionLabel.setText(QCoreApplication.translate("mainWindow", u"\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u041e\u043f\u0446\u0438\u0439:", None))
         self.BiMatrixButton.setText(QCoreApplication.translate("mainWindow", u"\u0411\u0438\u043c\u0430\u0442\u0440\u0438\u0447\u043d\u0430\u044f", None))
         self.ConfirmMatrixButton.setText(QCoreApplication.translate("mainWindow", u"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c \u043c\u0430\u0442\u0440\u0438\u0446\u0443", None))
+        self.BufferButton.setText(QCoreApplication.translate("mainWindow", u"\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442", None))
         self.menuFile.setTitle(QCoreApplication.translate("mainWindow", u"File", None))
+        self.menuAlgorithms.setTitle(QCoreApplication.translate("mainWindow", u"\u0410\u043b\u0433\u043e\u0440\u0438\u0442\u043c\u044b", None))
     # retranslateUi
 
