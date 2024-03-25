@@ -84,7 +84,7 @@ class Matrix:
         texttable.add_row([" "]+[strategy for strategy in self.second_player_strategies])
         for i in range(self.n):
             texttable.add_row([self.first_player_strategies[i]] + self.matrix[i].tolist())
-        res_string = f"First player: {self.first_player}. Second Player: {self.second_player}"
+        res_string = f"First player: {self.first_player}. Second Player: {self.second_player}\n"
         return res_string+texttable.draw()
 
     def __str__(self) -> str:
