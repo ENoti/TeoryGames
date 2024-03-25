@@ -1,1 +1,1 @@
-# TeoryGames
+# TheoryGames
