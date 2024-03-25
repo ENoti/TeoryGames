@@ -16,8 +16,8 @@ def maximin(matr: matrix.Matrix, param):
             if arr[i] > maxElem:
                 maxElem = arr[i]
     elif(param == 1):
-        for i in range (matr.n):
-            for j in range (matr.m):
+        for i in range (matr.m):
+            for j in range (matr.n):
                 if matr.matrix[j][i][param] < minElem:
                     minElem = matr.matrix[j][i][param]
             arr[i] = minElem
@@ -43,8 +43,8 @@ def minimax(matr: matrix.Matrix, param):
             if arr[i] < maxElem:
                 maxElem = arr[i]
     elif(param == 1):
-        for i in range (matr.n):
-            for j in range (matr.m):
+        for i in range (matr.m):
+            for j in range (matr.n):
                 if matr.matrix[j][i][param] > minElem:
                     minElem = matr.matrix[j][i][param]
             arr[i] = minElem
@@ -187,6 +187,6 @@ def nesh(matr: matrix.Matrix):
     return i, j
 
 matr = matrix.Matrix.input_from_file('TeoryGames/matrix.txt')
-print(maximin(matr, 1))
+print(minimax(matr, 1))
 
 
