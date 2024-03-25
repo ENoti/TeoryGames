@@ -156,7 +156,37 @@ def weaklyDominant(matr: matrix.Matrix, param):
 
     return newMatr 
 
+def nesh(matr: matrix.Matrix):
+    n = matr.n
+    m = matr.m
+    index_i = 0
+    index_j = 0
+    maxElem  = matr.matrix[0][0][0]
+    newMatr = np.zeros((n, m))
+    for i in range(n):
+        for j in range(m):
+            if maxElem < matr.matrix[i][j][0]:
+                maxElem = matr.matrix[i][j][0]
+                index_i = i
+                index_j = j
+        maxElem = matr.matrix[i][0][0]
+        newMatr[index_i][index_j] += 1
+    for i in range(n):
+        for j in range(m):
+            if maxElem < matr.matrix[j][i][1]:
+                maxElem = matr.matrix[j][i][1]
+                index_i = i
+                index_j = j
+        maxElem = matr.matrix[0][j][1]
+        newMatr[index_i][index_j] += 1
+    for i in range(n):
+        for j in range(m):
+            if(newMatr[i][j] == 2):
+                return i, j
+    print("Невозможно равновесие по Нэшу")
+    return i, j
+
 matr = matrix.Matrix.input_from_file('TeoryGames/matrix.txt')
-print(weaklyDominant(matr, 0))
+print(nesh(matr))
 
 
