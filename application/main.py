@@ -5,7 +5,6 @@ from abc import abstractmethod
 import addons.matrix as matrix
 import addons.algos as algos
 import matix_render
-import function_params_render
 
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QLineEdit, QFileDialog, QGridLayout, QLabel, QMessageBox
@@ -18,7 +17,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.cur_matrix = None
-        self.buf_matrix = None 
+        self.buf_matrix = [None, None] 
 
         self._ui = Ui_mainWindow()
         self._ui.setupUi(self)
@@ -90,14 +89,14 @@ class MainWindow(QMainWindow):
 
     def button_buffer(self, flag) -> None:
         if flag:
-            if self.buf_matrix is not None:
-                self._load_from_obj(self.buf_matrix)
+            if self.buf_matrix[1] is not None:
+                self._load_from_obj(self.buf_matrix[1])
             self._ui.BufferButton.setText("Изначальная матрица")
         else:
-            if self.cur_matrix is not None:
-                self._load_from_obj(self.cur_matrix)
+            if self.buf_matrix[0] is not None:
+                self._load_from_obj(self.buf_matrix[0])
             self._ui.BufferButton.setText("Посмотреть результат")
-
+ 
     def create_file_dialog(self) -> list[str] | None:
         dialog = QFileDialog(self)
         dialog.setFileMode(QFileDialog.ExistingFile)
@@ -115,7 +114,6 @@ class MainWindow(QMainWindow):
 
     def _load_from_obj(self, matrix: matrix.Matrix) -> None:
         self._ui.ConfirmParamsButton.setChecked(False)
-
         self._ui.Option1Edit.setText(str(matrix.n))
         self._ui.Option2Edit.setText(str(matrix.m))
         self._ui.Name1Edit.setText(matrix.first_player)
@@ -152,13 +150,15 @@ class MainWindow(QMainWindow):
 
     def dominant_option(self) -> None:
         if self.cur_matrix is not None:
-            self.buf_matrix = algos.dominant(self.cur_matrix, self._ui.PlayerChoiceBox.currentIndex())
+            self.buf_matrix[0] = self.cur_matrix
+            self.buf_matrix[1] = algos.dominant(self.cur_matrix, self._ui.PlayerChoiceBox.currentIndex())
         else:
             self.show_message(QMessageBox.Icon.Critical, "Ошибка ввода", "Убедитесь, что все поля заполнены корректно")
 
     def weakly_dominant_option(self) -> None:
         if self.cur_matrix is not None:
-            self.buf_matrix = algos.weaklyDominant(self.cur_matrix, self._ui.PlayerChoiceBox.currentIndex())
+            self.buf_matrix[0] = self.cur_matrix
+            self.buf_matrix[1] = algos.weaklyDominant(self.cur_matrix, self._ui.PlayerChoiceBox.currentIndex())
         else:
             self.show_message(QMessageBox.Icon.Critical, "Ошибка ввода", "Убедитесь, что все поля заполнены корректно")
 

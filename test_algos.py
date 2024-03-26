@@ -27,4 +27,8 @@ class TestAlgos(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    _matrix = Matrix.input_from_file("resources\\test_2.txt")
+    rs_matrix = dominant(_matrix, 0)
+    print(_matrix)
+    print(rs_matrix)
