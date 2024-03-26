@@ -53,8 +53,8 @@ class MatrixNumCell(QLineEdit):
     
 
 class MatrixRender(object):
-    def __init__(self, gridLayout: QGridLayout) -> None:
-        self.matrixLayout = gridLayout
+    def __init__(self, parentLayout: QGridLayout) -> None:
+        self.matrixLayout = parentLayout
         self.matrixLayout.addLayout(MatrixNamesCell(None), 0, 0)
         self.is_bi = True
         self.rows = 1

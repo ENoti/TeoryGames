@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>628</height>
    </rect>
   </property>
   <property name="font">
@@ -190,6 +190,38 @@
         </property>
        </widget>
       </item>
+      <item>
+       <layout class="QHBoxLayout" name="FunctionHLayout">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QComboBox" name="PlayerChoiceBox"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="BufferButton">
+          <property name="text">
+           <string>Посмотреть результат</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </item>
     <item>
@@ -233,11 +265,47 @@
     </property>
     <addaction name="actionOpen"/>
    </widget>
+   <widget class="QMenu" name="menuAlgorithms">
+    <property name="title">
+     <string>Алгоритмы</string>
+    </property>
+    <addaction name="actionMinMax"/>
+    <addaction name="actionMaxMin"/>
+    <addaction name="actionDominant"/>
+    <addaction name="actionWeaklyDominant"/>
+    <addaction name="actionNesh"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAlgorithms"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
     <string>Open</string>
+   </property>
+  </action>
+  <action name="actionMinMax">
+   <property name="text">
+    <string>МинМакс</string>
+   </property>
+  </action>
+  <action name="actionMaxMin">
+   <property name="text">
+    <string>МаксМин</string>
+   </property>
+  </action>
+  <action name="actionDominant">
+   <property name="text">
+    <string>Строго доминируемая</string>
+   </property>
+  </action>
+  <action name="actionWeaklyDominant">
+   <property name="text">
+    <string>Слабо доминируемая</string>
+   </property>
+  </action>
+  <action name="actionNesh">
+   <property name="text">
+    <string>Равновесие по Нэшу</string>
    </property>
   </action>
  </widget>
