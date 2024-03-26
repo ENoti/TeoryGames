@@ -70,6 +70,9 @@ def dominant(matr: matrix.Matrix, param):
                 elif chet2 == m:
                     if i not in index:
                         index.append(i)
+        if len(index) == 0:
+            print("Строго доминируемых стратегий не обнаружено")
+            return matr
         index.sort(reverse=True)
         newMatrix = copy.deepcopy(matr)
         new_n = matr.n
@@ -96,6 +99,9 @@ def dominant(matr: matrix.Matrix, param):
                 elif chet2 == n:
                     if i not in index:
                         index.append(i)
+        if len(index) == 0:
+            print("Строго доминируемых стратегий не обнаружено")
+            return matr
         index.sort(reverse=True)
         newMatrix = copy.deepcopy(matr)
         new_m = matr.m
@@ -105,10 +111,6 @@ def dominant(matr: matrix.Matrix, param):
                 del newMatrix.second_player_strategies[i]
                 new_m -= 1
         newMatrix.m = new_m
-
-    if len(index) == 0:
-        print("Строго доминируемых стратегий не обнаружено")
-        newMatr = None
 
     return newMatrix
 
@@ -134,6 +136,9 @@ def weaklyDominant(matr: matrix.Matrix, param):
                 elif chet2 == m:
                     if i not in index:
                         index.append(i)
+        if len(index) == 0:
+            print("Слабо доминирующая стратегий не обнаружено")
+            return matr
         index.sort(reverse=True)
         newMatrix = copy.deepcopy(matr)
         new_n = matr.n
@@ -160,6 +165,9 @@ def weaklyDominant(matr: matrix.Matrix, param):
                 elif chet2 == n:
                     if i not in index:
                         index.append(i)
+        if len(index) == 0:
+            print("Слабо доминирующая стратегий не обнаружено")
+            return matr
         index.sort(reverse=True)
         newMatrix = copy.deepcopy(matr)
         new_m = matr.m
@@ -169,10 +177,6 @@ def weaklyDominant(matr: matrix.Matrix, param):
                 del newMatrix.second_player_strategies[i]
                 new_m -= 1
         newMatrix.m = new_m
-
-    if len(index) == 0:
-        print("Слабо доминирующая стратегий не обнаружено")
-        newMatr = None
 
     return newMatrix
 
