@@ -11,6 +11,16 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QTextEdit, QLineEdit, Q
 from PySide6.QtGui import QRegularExpressionValidator
 from ui_MainWindow import Ui_mainWindow
 
+
+class QSSLoader:
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def read_qss_file(qss_file_name):
+        with open(qss_file_name, 'r') as file:
+            return file.read()
+
       
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,6 +31,9 @@ class MainWindow(QMainWindow):
 
         self._ui = Ui_mainWindow()
         self._ui.setupUi(self)
+        style_file = 'application\\static\\style.qss'
+        style_sheet = QSSLoader.read_qss_file(style_file)
+        self._ui.centralwidget.setStyleSheet(style_sheet)
         self._matrix_render = matix_render.MatrixRender(self._ui.MatrixInputLayout)
         self._info_message = QMessageBox(QMessageBox.Icon(0), "", "", parent=self)
 
@@ -31,7 +44,7 @@ class MainWindow(QMainWindow):
         self._ui.actionWeaklyDominant.triggered.connect(self.weakly_dominant_option)
         self._ui.actionNesh.triggered.connect(self.nesh_option)
 
-        self._ui.PlayerChoiceBox.addItems(["Игрок 1", "игрок 2"])
+        self._ui.PlayerChoiceBox.addItems(["Игрок 1", "Игрок 2"])
 
         self._ui.ConfirmParamsButton.toggled.connect(self.button_params)
         self._ui.ConfirmMatrixButton.toggled.connect(self.button_matrix_data)

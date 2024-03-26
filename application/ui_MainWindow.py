@@ -216,7 +216,7 @@ class Ui_mainWindow(object):
         self.actionWeaklyDominant.setText(QCoreApplication.translate("mainWindow", u"\u0421\u043b\u0430\u0431\u043e \u0434\u043e\u043c\u0438\u043d\u0438\u0440\u0443\u0435\u043c\u0430\u044f", None))
         self.actionNesh.setText(QCoreApplication.translate("mainWindow", u"\u0420\u0430\u0432\u043d\u043e\u0432\u0435\u0441\u0438\u0435 \u043f\u043e \u041d\u044d\u0448\u0443", None))
         self.ConfirmParamsButton.setText(QCoreApplication.translate("mainWindow", u"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b", None))
-        self.PlayerLabel.setText(QCoreApplication.translate("mainWindow", u"\u0418\u043c\u0435\u043d\u0430 \u0418\u0433\u0440\u043e\u043a\u043e\u0432:     ", None))
+        self.PlayerLabel.setText(QCoreApplication.translate("mainWindow", u"\u0418\u043c\u0435\u043d\u0430 \u0418\u0433\u0440\u043e\u043a\u043e\u0432:          ", None))
         self.OptionLabel.setText(QCoreApplication.translate("mainWindow", u"\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u041e\u043f\u0446\u0438\u0439:", None))
         self.BiMatrixButton.setText(QCoreApplication.translate("mainWindow", u"\u0411\u0438\u043c\u0430\u0442\u0440\u0438\u0447\u043d\u0430\u044f", None))
         self.ConfirmMatrixButton.setText(QCoreApplication.translate("mainWindow", u"\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u044c \u043c\u0430\u0442\u0440\u0438\u0446\u0443", None))

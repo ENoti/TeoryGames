@@ -1,0 +1,42 @@
+QWidget {
+    background-color: rgb(255, 170, 127);
+    font: 12pt "Impact";
+}
+
+QPushButton {
+    background-color: rgb(175, 156, 126);
+    border-radius: 15px;
+    color: rgb(255, 249, 225);
+}
+
+QPushButton:pressed {
+    background-color: rgb(175, 156, 126);
+    border-radius: 10px;
+    color: rgb(113, 101, 78);
+}
+
+QRadioButton {
+    color: rgb(255, 249, 225);
+}
+
+QLabel {
+    color: rgb(129, 118, 72);
+}
+
+QTextEdit {
+    border-radius: 15px;
+    background-color: rgb(255, 249, 225);
+    color: rgb(129, 118, 72);
+}
+
+QLineEdit {
+    border-radius: 15px;
+    background-color: rgb(255, 249, 225);
+    color: rgb(129, 118, 72);
+}
+
+QComboBox {
+    border-radius: 15px;
+    background-color: rgb(255, 249, 225);
+    color: rgb(129, 118, 72);
+}
